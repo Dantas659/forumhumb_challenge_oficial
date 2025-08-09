@@ -60,8 +60,6 @@ public class RequestController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UsuarioEntity usuarioEntity = (UsuarioEntity) authentication.getPrincipal();
 
-        System.out.println("Usuário autenticado ID: " + usuarioEntity.getId());
-        System.out.println("Usuário autenticado username: " + usuarioEntity.getUsername());
 
         CursosEntity cursosEntity = cursosRepository.findByNome(json.nomeCurso())
                 .orElseThrow(() -> new RuntimeException("Curso não encontrado"));
