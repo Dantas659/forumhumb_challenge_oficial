@@ -20,8 +20,8 @@ public class TopicoService {
     @Autowired
     private CursosRepository cursosRepository;
 
-    public TopicoEntity cadastrar(TopicosDTO json, Long cursosEntityId, Long usuarioEntityId) {
-        
+    public TopicoEntity cadastrar(TopicosDTO json, Long usuarioEntityId , Long cursosEntityId) {
+          System.out.println("ID recebido no cadastrar: usuarioEntityId=" + usuarioEntityId + ", cursosEntityId=" + cursosEntityId);
         var usuario = usuarioRepository.findById(usuarioEntityId)
                 .orElseThrow(() -> new RuntimeException("Usuário " + usuarioEntityId + " não encontrado"));
         var curso = cursosRepository.findById(cursosEntityId)
